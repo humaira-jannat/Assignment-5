@@ -47,4 +47,36 @@ services.forEach(service => {
     hearts++;
     heartDisplay.textContent = hearts;
   });
-   
+    card.querySelector(".copy-btn").addEventListener("click", () => {
+      navigator.clipboard.writeText(service.contact).then(() => {
+        copies++;
+        copyDisplay.textContent =copies;
+        alert(`Copied ${service.name} number!`);
+      });
+    });
+    card.querySelector(".call-btn").addEventListener("click", () => {
+      if (coins < 20) {
+        alert("Not enough coins to make the call!");
+        return;
+      }
+      coins -= 20;
+      coinDisplay.textContent = coins;
+      alert(`Calling ${service.name} at ${service.contact}`);
+      
+      const now = new Date();
+      const options = {
+        year: 'numeric' , month:'2-digit', day:'2-digit',
+        hour: '2-digit', minute:'2-digit', second:'2-digit',
+        hour12: true
+      };
+      const timeString = now.toLocaleTimeString('en-US', options);
+
+      const li =document.createElement ("li");
+      li.textContent =  `${service.name} - ${service.contact}  (${timeString})`;
+      historyList.appendChild(li);
+    });
+    cardsContainer.appendChild(card);
+  });
+  clearHistoryBtn.addEventListener("click", () => {
+    historyList.innerHTML ="";
+  });
