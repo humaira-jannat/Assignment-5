@@ -178,8 +178,6 @@ body {
   font-size: 12px;
   margin-top: 6px;
 }
-
-/* Buttons */
 .card-buttons {
   display: flex;
   gap: 8px;
@@ -206,7 +204,6 @@ body {
   color: #fff;
 }
 
-/* History Section */
 .history-container {
   background: #fff;
   border-radius: 12px;
@@ -242,8 +239,6 @@ body {
   padding: 6px 0;
   border-bottom: 1px solid #c4c2c2;
 }
-
-/* Responsive */
 @media (max-width: 768px) {
   .cards-history-container {
     grid-template-columns: 1fr;
